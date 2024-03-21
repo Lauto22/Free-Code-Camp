@@ -1,0 +1,60 @@
+<!--
+Instrucciones:
+
+1-Tu página de homenaje debe tener un elemento main con un id correspondiente de main, que contiene los demás elementos
+2-La página debe tener un elemento id de title, el cual contendrá una cadena de caracteres (p. ej. texto), que describe el tema de la página de homenaje (p. ej. "Dr. Norman Borlaug")
+3-La página debe tener tanto un elemento figure o un elemento div con un id de img-div
+4-Dentro del elemento #img-div debe tener un elemento img con su correspondiente id="image"
+5-Dentro del elemento #img-div, debes ver un elemento con un id="img-caption" correspondiente que contiene contenido textual describiendo la imagen mostrada en #img-div
+6-Debe tener su correspondiente elemento id="tribute-info", que contendrá una descripción textual del sujeto de la página tributo
+7-Debes ver un elemento a con su id="tribute-link" correspondiente, que contiene información adicional sobre el tema de la página de homenaje. CONSEJO: Debes dar al elemento un atributo target y establecerlo como _blank para que tu enlace se abra en una nueva pestaña
+8-Tú #image debe usar las propiedades max-width y height para redimensionarse en función de la anchura de su elemento padre, sin sobrepasar su tamaño original
+9-Tu elemento img debe estar centrado con respecto al elemento que lo contiene 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akira Toriyama Tribute</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main id="main">
+        <div id="title-block">
+            <h1 id="title">Akira Toriyama</h1>
+            <h2>En memoria de Akira Toriyama, creador de hermosas infancias</h2>
+        </div>
+            
+
+        <div id="img-div">
+            <img src="https://warp.la/wp-content/uploads/2024/03/493849_1549446.webp" alt="akira" id="image">
+            <p id="img-caption">
+                Akira Toriyama, el creador de <b>Dragon Ball</b>.
+            </p>
+        </div>
+        <hr>
+        <section id="tribute-info">
+            <h2>Un poco de información sobre la vida de Akira Toriyama</h2>
+            <ul>
+                <li>Akira Toriyama nació el <b>5 de abril de 1955</b> en la ciudad de Kiyosu, prefectura de Aichi, Japón</li>
+                <li>Su primer reconocimiento profesional lo logró con Dr. Slump. Se publicó de <b>1980</b> hasta <b>1983</b></li>
+                <li>Tras la conclusión de Dr. Slump, en <b>1983</b> empezó a escribir una historia corta llamada Dragon Boy, que poco después pasó a renombrar a <b>Dragon Ball</b></li>
+                <li>Esta obra lo hizo inmensamente popular en Japón y en el extranjero.</li>
+                <li>Dragon Ball terminó convirtiéndose en un fenómeno cultural: por ejemplo, frases como <i>"tengo que aumentar mi ki"</i> se volvieron populares durante los años <b>1990</b>.</li>
+                <li>La serie animada de Dragon Ball Z ha sido traducida al español, catalán, euskera, gallego, inglés, francés, italiano, portugués y a otros idiomas. La serie elaborada por la compañía Shueisha concluyó en<b>1996</b>.</li>
+                <li>En ese mismo año de <b>1996</b>, la compañía que realizaba el anime, Toei Animation intentó continuar con la historia, pero Toriyama se negó a producir más manga de Dragón Ball, así que se limitó a darle permiso a la compañía para hacer una serie como continuación de Dragón Ball Z</li>
+                <li>Así empezó Dragon Ball GT, que no tuvo el mismo impacto de las versiones anteriores, pero que cosechó un gran éxito.</li>
+                <li>En <b>2012</b>, se anunció la creación de la película Dragon Ball Z: Battle of Gods, en la que Toriyama estuvo involucrado para su elaboración. La cinta marcó el primer filme en cines en 17 años, y la primera vez que Toriyama participó en una en sus etapas iniciales de escritura</li>
+                <li>El <b>28 de abril de 2015</b>, se confirmó la continuación de Dragon Ball, ubicada en el lapso de tiempo que pasa tras el final de la saga de Majin Buu y final de Dragon Ball.</li>
+                <li>En adición, en ese tiempo también contribuyó en la creación del anime Dragon Ball Super, que fue estrenado por Toei Animation el <b>5 de julio de 2015</b>, y concluyó el <b>25 de marzo de 2018</b></li>
+                <li>El <b>1 de marzo de 2024</b>, Toriyama falleció a causa de un hematoma subdural agudo, a los 68 años de edad</li>
+            </ul>
+            <hr>
+            <p>Si desea saber mas sobre Akira Toriyama, siga este link <a id="tribute-link" target="_blank" href="https://es.wikipedia.org/wiki/Akira_Toriyama">wikipedia entry</a>.</p>
+        </section>
+
+    </main>
+</body>
+</html>
