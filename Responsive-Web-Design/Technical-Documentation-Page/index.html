@@ -1,0 +1,1414 @@
+<!--
+1-Puedes ver un elemento main con su correspondiente id="main-doc", el cual abarcará el contenido principal de la página (documentación técnica)
+2-Dentro del elemento #main-doc, se pueden ver varios elementos section, cada uno con la clase main-section. Debe haber un mínimo de cinco
+3-El primer elemento dentro de cada .main-section debería ser un elemento header, el cual contendrá texto que describa el tema de esa sección.
+4-Cada elemento section con la clase main-section debería tener también un id que corresponda al texto de cada header contenido dentro de él. Cualquier espacio debe ser reemplazado por guiones bajos ( Ejemplo: La sección que contiene el encabezado "JavaScript and Java" debe tener un id="JavaScript_and_Java")
+5-Los elementos .main-section deberán tener al menos diez elementos p en total (no cada uno)
+6-Los elementos .main-section deberán tener al menos cinco elementos code en total (no cada uno)
+7-Los elementos .main-section deberán tener al menos cinco items li en total (no cada uno)
+8-Puedes ver un elemento nav con su correspondiente id="navbar"
+9-La barra de navegación deberá contener un elemento header, el cual contendrá texto que describa el tema de la documentación técnica
+10-Además, la barra de navegación deberá contener elementos de enlace (a) con la clase nav-link. Debe haber uno para cada elemento con la clase main-section
+11-El elemento header dentro de la #navbar debería ir antes que los elementos (a) de la barra de navegación
+12-Cada elemento con la clase nav-link debería tener texto que corresponda al texto del header de cada section (Ejemplo: Si tienes una seccion/encabezado "Hello world", tu barra de navegación debería tener un elemento que contenga el texto "Hello world")
+13-Al hacer click en un elemento de tu barra de navegación, la página debería dirigirse a la sección correspondiente del elemento #main-doc (Ejemplo: Si haces click en el elemento .nav-link que contiene el texto "Hello world", la página debería dirigirse al elemento section que tenga ese id y contenga el encabezado correspondiente)
+14-En dispositivos de tamaño normal (portatiles, computadoras de escritorio), el elemento con id="navbar" debe mostrarse en el lado izquierdo de la pantalla y siempre ser visible para el usuario
+15-Tu documentación técnica debe usar al menos una media query
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeFlex Doc</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav id="navbar">
+        <header>PrimeFlex</header>
+        <a href="#Intro" class="nav-link">Intro</a>
+        <a href="#Module_Loader" class="nav-link">Quick Start</a>
+        <a href="#Layout" class="nav-link">Layout</a>
+        <a href="#Flexbox" class="nav-link">Flexbox</a>
+        <a href="#Grid" class="nav-link">Grid</a>
+        <a href="#Background" class="nav-link">Background</a>
+    </nav>
+    <main id="main-doc">
+
+        <section class="main-section" id="Intro">
+            <header>Intro</header>
+            <p>PrimeFlex is a lightweight responsive CSS utility library to accompany Prime UI libraries and static webpages as well. </p>
+            <p>PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more.</p>
+            <p>Here are some of the basic helpers of PrimeFlex</p>
+            <ul>
+                <li>Layout</li>
+                <li>Flexbox</li>
+                <li>Grid</li>
+                <li>Background</li>
+                <li>And many more!</li>
+            </ul>
+        </section>
+
+        <section class="main-section"  id="Module_Loader">
+            <header>Module Loader</header>
+            <p>PrimeFlex is available for download at NPM for usage with a module bundler such as webpack.</p>
+            <pre><code>
+                npm install primeflex
+            </code></pre>
+            <p>After installation you may include the library by importing from node_modules.</p>
+            <pre><code>
+                /node_modules/primeflex/primeflex.css
+            </code></pre>
+            <h2>Load from CDN</h2>
+            <p>PrimeFlex can also be loaded from a CDN using a link tag.</p>
+            <pre><code>
+                &lt;link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css"&gt;
+            </code></pre>
+            <h2>VSCode Extension</h2>
+            <p>The official PrimeFlex extension for VSCode provides code completion and snippets support for the classes. Search for "PrimeFlex" at VSCode marketplace to download and install the extension.</p>
+        </section>
+
+        <section class="main-section" id="Layout">
+            <header>Layout</header>
+            <h2>Display</h2>
+            <p>Defines how an element is displayed on a page.</p>
+            <h3>Hidden</h3>
+            <p>A hidden element is not visible and does not allocate space.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-center justify-content-start&quot;&gt;
+                    &lt;div class=&quot;hidden w-4rem h-4rem bg-primary font-bold p-4 border-round mr-3&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;w-4rem h-4rem bg-primary font-bold flex align-items-center justify-content-center p-4 border-round mr-3&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;w-4rem h-4rem bg-primary font-bold flex align-items-center justify-content-center p-4 border-round&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Block</h3>
+            <p>A block element starts on a new line.</p>
+            <pre><code>
+                &lt;div class=&quot;block bg-primary font-bold text-center p-4 border-round mb-3&quot;&gt;1&lt;/div&gt;
+                &lt;div class=&quot;block bg-primary font-bold text-center p-4 border-round mb-3&quot;&gt;2&lt;/div&gt;
+                &lt;div class=&quot;block bg-primary font-bold text-center p-4 border-round mb-3&quot;&gt;3&lt;/div&gt;
+            </code></pre>
+            <h3>Inline</h3>
+            <p>An inline element does not start on a new line and allocates width as necessary.</p>
+            <pre><code>
+                &lt;div className=&quot;inline bg-primary font-bold text-center p-4 border-round mx-4&quot;&gt;1&lt;/div&gt;
+                &lt;div className=&quot;inline bg-primary font-bold text-center p-4 border-round&quot;&gt;2&lt;/div&gt;
+                &lt;div className=&quot;inline bg-primary font-bold text-center p-4 border-round mx-4&quot;&gt;3&lt;/div&gt;
+            </code></pre>
+            <h3>Inline Block</h3>
+            <p>Inline block is similar to an inline element but properties like width, height and top bottom paddings/margins are respected.</p>
+            <pre><code>
+                &lt;div class=&quot;card-container&quot;&gt;
+                    &lt;div class=&quot;inline-block w-4rem h-4rem bg-primary font-bold text-center p-4 border-round&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;inline-block w-4rem h-4rem bg-primary font-bold text-center p-4 border-round mx-4&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;inline-block w-4rem h-4rem bg-primary font-bold text-center p-4 border-round&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Flex</h3>
+            <p>Displays the element as a block level flex container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex&quot;&gt;
+                    &lt;div class=&quot;flex-1 h-4rem bg-primary font-bold text-center p-4 border-round&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex-1 h-4rem bg-primary font-bold text-center p-4 border-round mx-4&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex-1 h-4rem bg-primary font-bold text-center p-4 border-round&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Inline Flex</h3>
+            <p>Displays the element as an inline level flex container.</p>
+            <pre><code>
+                &lt;div class=&quot;inline-flex&quot;&gt;
+                    &lt;div class=&quot;flex-1 h-4rem bg-primary font-bold text-center p-4 border-round&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex-1 h-4rem bg-primary font-bold text-center p-4 border-round mx-4&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex-1 h-4rem bg-primary font-bold text-center p-4 border-round&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:block to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;inline-flex&quot;&gt;
+                    &lt;div class=&quot;hidden md:block bg-primary font-bold align-items-center justify-content-center p-4 border-round mr-3&quot;&gt;Hide on a small screen&lt;/div&gt;
+                    &lt;div class=&quot;block md:hidden bg-primary font-bold align-items-center justify-content-center p-4 border-round mr-3&quot;&gt;Visible on a small screen&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Overflow</h2>
+            <p>Controls the behavior when content exceeds the area of its container.</p>
+            <h3>Auto</h3>
+            <p>A scrollbar is only displayed when the content does not fit the area.</p>
+            <pre><code>
+                &lt;div class=&quot;line-height-3&quot;&gt;
+                    &lt;div class=&quot;overflow-auto surface-overlay p-3 border-primary-500 border-2 border-round&quot; style=&quot;height: 100px&quot;&gt;
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        &lt;/div&gt;
+                &lt;/div&gt; 
+            </code></pre>
+            <h3>Hidden</h3>
+            <p>Overflown content is clipped and rest of the content will not bevisible.</p>
+            <pre><code>
+                &lt;div class=&quot;line-height-3&quot;&gt;
+                    &lt;div class=&quot;overflow-hidden surface-overlay p-3 border-primary-500 border-2 border-round&quot; style=&quot;height: 100px&quot;&gt;
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    &lt;/div&gt;
+                &lt;/div&gt; 
+            </code></pre>
+            <h3>Visible</h3>
+            <p>Overflown content is not clipped and rest of the content will be visible.</p>
+            <pre><code>
+                &lt;div class=&quot;line-height-3&quot;&gt;
+                    &lt;div class=&quot;overflow-visible surface-overlay p-3 border-primary-500 border-2 border-round&quot; style=&quot;height: 100px&quot;&gt;
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Scroll</h3>
+            <p>A scrollbar is always displayed whether the content overflows or not.</p>
+            <pre><code>
+                &lt;div class=&quot;line-height-3&quot;&gt;
+                    &lt;div class=&quot;overflow-scroll surface-overlay p-3 border-primary-500 border-2 border-round&quot; style=&quot;height: 100px&quot;&gt;
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    &lt;/div&gt;
+                &lt;/div&gt;   
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:overflow-auto to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;line-height-3&quot;&gt;
+                    &lt;div class=&quot;overflow-hidden md:overflow-auto surface-overlay p-3 border-primary-500 border-2 border-round&quot; style=&quot;height: 100px&quot;&gt;
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    &lt;/div&gt;
+                &lt;/div&gt;  
+            </code></pre>
+            <h2>Position</h2>
+            <p>Specifies how an element is positioned on the screen.</p>
+            <h3>Static</h3>
+            <p>A static positioned element is displayed according to the flow of the page and does not get affected by the top, left, right and bottom properties.</p>
+            <pre><code>
+                &lt;div class=&quot;relative&quot;&gt;
+                    &lt;div class=&quot;static bg-primary-100 p-4 border-round text-gray-800&quot; style=&quot;min-width: 300px; min-height: 150px;&quot;&gt;
+                        &lt;p class=&quot;font-bold text-gray-900&quot;&gt;Static&lt;/p&gt;
+                        &lt;div class=&quot;absolute bottom-0 left-0 bg-primary border-round p-4 font-bold &quot; style=&quot;min-width: 120px; min-height: 70px&quot;&gt;
+                            Absolute
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt; 
+            </code></pre>
+            <h3>Fixed</h3>
+            <p>A fixed element is positioned relative to the viewport and always located in the same position even when the page is scrolled.</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot; style=&quot;height: 250px&quot;&gt;
+                    &lt;div class=&quot;relative bg-primary border-round border-1 border-primary-500&quot; style=&quot;height: 200px&quot;&gt;
+                        &lt;div class=&quot;absolute top-0 left-0 px-4 py-3 w-full font-bold&quot;&gt;
+                            Fixed
+                        &lt;/div&gt;
+                        &lt;div class=&quot;absolute overflow-auto surface-overlay mt-6 p-4 line-height-3&quot; style=&quot;height: 150px&quot;&gt;
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Relative</h3>
+            <p>A relative positioned element is displayed relative to its original position. Setting the top, left, right and bottom properties can be used to adjust the position of the element.</p>
+            <pre><code>
+                &lt;div class=&quot;relative&quot;&gt;
+                    &lt;div class=&quot;relative bg-primary-100 p-4 border-round font-bold text-gray-800&quot; style=&quot;min-width: 300px; min-height: 160px;&quot;&gt;Relative
+                        &lt;div class=&quot;absolute bottom-0 left-0 bg-primary p-4 font-bold border-round&quot; style=&quot;min-width: 120px; min-height: 70px&quot;&gt;
+                            Absolute
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Absolute</h3>
+            <p>A fixed element is positioned relative to the viewport and always located in the same position even when the page is scrolled.</p>
+            <pre><code>
+                &lt;div class=&quot;mb-4&quot;&gt;
+                    &lt;div class=&quot;relative bg-primary-100 border-round p-4 font-bold text-gray-800&quot;&gt;
+                        &lt;p class=&quot;mt-0&quot;&gt;Relative&lt;/p&gt;
+                        &lt;div class=&quot;static bg-primary-200 border-round p-4 font-bold text-gray-800&quot; style=&quot;min-width: 300px; min-height: 150px;&quot;&gt;
+                            &lt;p class=&quot;mt-0&quot;&gt;Static&lt;/p&gt;
+                            &lt;div class=&quot;static bottom-0 left-0 bg-primary border-round p-4 font-bold &quot; style=&quot;min-width: 120px; min-height: 70px&quot;&gt;
+                                Static
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;relative bg-primary-100 border-round p-4 font-bold text-gray-800&quot;&gt;
+                    &lt;p class=&quot;mt-0&quot;&gt;Relative&lt;/p&gt;
+                    &lt;div class=&quot;static bg-primary-200 border-round p-4 font-bold text-gray-800&quot; style=&quot;min-width: 300px; min-height: 150px;&quot;&gt;
+                        &lt;p class=&quot;mt-0&quot;&gt;Static&lt;/p&gt;
+                        &lt;div class=&quot;absolute bottom-0 left-0 bg-primary border-round p-4 font-bold &quot; style=&quot;min-width: 120px; min-height: 70px&quot;&gt;
+                            Dynamic
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Sticky</h3>
+            <p>A sticky element is dynamically positioned based on the scroll position and toggles between the relative and fixed behavior.</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;overflow-auto border-round border-1 border-primary-500&quot; style=&quot;height: 300px&quot;&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;sticky top-0 font-bold bg-primary p-4&quot;&gt;
+                                Sticky Title 1
+                            &lt;/div&gt;
+                            &lt;p class=&quot;surface-overlay p-4 m-0&quot;&gt;
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                            &lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;sticky top-0 font-bold bg-primary p-4&quot;&gt;
+                                Sticky Title 2
+                            &lt;/div&gt;
+                            &lt;p class=&quot;surface-overlay p-4 m-0&quot;&gt;
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                            &lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;sticky top-0 font-bold bg-primary p-4&quot;&gt;
+                                Sticky Title 3
+                            &lt;/div&gt;
+                            &lt;p class=&quot;surface-overlay p-4 m-0&quot;&gt;
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                            &lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;sticky top-0 font-bold bg-primary p-4&quot;&gt;
+                                Sticky Title 4
+                            &lt;/div&gt;
+                            &lt;p class=&quot;surface-overlay p-4 m-0&quot;&gt;
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                            &lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;sticky top-0 font-bold bg-primary p-4&quot;&gt;
+                                Sticky Title 5
+                            &lt;/div&gt;
+                            &lt;p class=&quot;surface-overlay p-4 m-0&quot;&gt;
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae sapien pellentesque habitant morbi tristique senectus et netus. Vitae proin sagittis nisl rhoncus mattis.
+                                Maecenas pharetra convallis posuere morbi leo urna molestie. At in tellus integer feugiat scelerisque.
+                                Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Luctus accumsan tortor posuere ac ut.
+                            &lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:absolute to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;relative md:p-5&quot;&gt;
+                    &lt;div class=&quot;static bg-primary-100 font-bold border-round p-4 text-gray-800&quot; style=&quot;min-width: 300px; min-height: 200px;&quot;&gt;
+                        &lt;p class=&quot;mt-0&quot;&gt;Static&lt;/p&gt;
+                        &lt;div class=&quot;static md:absolute bottom-0 left-0 bg-primary border-round font-bold p-4&quot; style=&quot;min-width: 120px; min-height: 70px&quot;&gt;
+                            Absolute on medium screens / Static on small screens
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Placement</h2>
+            <p>Controls the vertical and horizontal position of a positioned element.</p>
+            <h3>Top / Right / Bottom / Left</h3>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap gap-3 align-items-center justify-content-center&quot;&gt;
+                    &lt;div class=&quot;relative bg-primary-200 w-9rem h-9rem mx-3 my-3 md:my-0 border-round&quot;&gt;
+                        &lt;div class=&quot;absolute top-0 left-0 bg-primary font-bold flex align-items-center justify-content-center w-4rem h-4rem border-round&quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;relative bg-primary-200 w-9rem h-9rem mx-3 my-3 md:my-0 border-round&quot;&gt;
+                        &lt;div class=&quot;absolute top-0 right-0 bg-primary font-bold flex align-items-center justify-content-center w-4rem h-4rem border-round&quot;&gt;2&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;relative bg-primary-200 w-9rem h-9rem mx-3 my-3 md:my-0 border-round&quot;&gt;
+                        &lt;div class=&quot;absolute bottom-0 right-0 bg-primary font-bold flex align-items-center justify-content-center w-4rem h-4rem border-round&quot;&gt;3&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;relative bg-primary-200 w-9rem h-9rem mx-3 my-3 md:my-0 border-round&quot;&gt;
+                        &lt;div class=&quot;absolute bottom-0 left-0 bg-primary font-bold flex align-items-center justify-content-center w-4rem h-4rem border-round&quot;&gt;4&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:top-0 to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap align-items-center justify-content-center&quot;&gt;
+                    &lt;div class=&quot;relative bg-primary-200 w-9rem h-9rem mx-3 my-3 md:my-0 border-round&quot;&gt;
+                        &lt;div class=&quot;absolute md:top-0 md:left-0 top-50 left-50 bg-primary font-bold flex align-items-center justify-content-center w-4rem h-4rem border-round&quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;relative bg-primary-200 w-9rem h-9rem mx-3 my-3 md:my-0 border-round&quot;&gt;
+                        &lt;div class=&quot;absolute md:bottom-0 md:right-0 bottom-50 right-50 bg-primary font-bold flex align-items-center justify-content-center w-4rem h-4rem border-round&quot;&gt;2&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Z-Index</h2>
+            <p>Defines the stack order of an element.</p>
+            <h3>Examples</h3>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap justify-content-center&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;z-5 relative flex align-items-center justify-content-center p-4 bg-primary font-bold border-round shadow-1&quot; style=&quot;width: 100px; height: 100px; left:125px&quot;&gt;z-5&lt;/div&gt;
+                    &lt;div class=&quot;z-4 relative flex align-items-center justify-content-center p-4 bg-primary font-bold border-round shadow-1&quot; style=&quot;width: 100px; height: 100px; left:100px; top:10px&quot;&gt;z-4&lt;/div&gt;
+                    &lt;div class=&quot;z-3 relative flex align-items-center justify-content-center p-4 bg-primary font-bold border-round shadow-1&quot; style=&quot;width: 100px; height: 100px; left:75px; top:20px&quot;&gt;z-3&lt;/div&gt;
+                    &lt;div class=&quot;z-2 relative flex align-items-center justify-content-center p-4 bg-primary font-bold border-round shadow-1&quot; style=&quot;width: 100px; height: 100px; left:50px; top:30px&quot;&gt;z-2&lt;/div&gt;
+                    &lt;div class=&quot;z-1 relative flex align-items-center justify-content-center p-4 bg-primary font-bold border-round shadow-1&quot; style=&quot;width: 100px; height: 100px; left:25px; top:40px&quot;&gt;z-1&lt;/div&gt;
+                    &lt;div class=&quot;z-0 relative flex align-items-center justify-content-center p-4 bg-primary font-bold border-round shadow-1&quot; style=&quot;width: 100px; height: 100px; top:50px&quot;&gt;z-0&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:z-1 to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap justify-content-center&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;z-1 md:z-0 relative flex align-items-center justify-content-center p-4 bg-primary font-bold border-round shadow-1&quot; style=&quot;width: 100px; height: 100px; left:25px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;z-0 relative flex align-items-center justify-content-center p-4 bg-primary font-bold border-round shadow-1&quot; style=&quot;width: 100px; height: 100px; top:10px&quot;&gt;2&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+        </section>
+
+        <section class="main-section" id="Flexbox">
+            <header>Flexbox</header>
+            <h2>Flex Direction</h2>
+            <p>Sets the direction of flexible items.</p>
+            <h3>Row</h3>
+            <p>Items are displayed horizontally.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-row flex-wrap&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Row Reverse</h3>
+            <p>Items are displayed horizontally but in reverse order.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-row-reverse flex-wrap&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Column</h3>
+            <p>Items are displayed vertically.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-column&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Column Reverse</h3>
+            <p>Items are displayed vertically but in reverse order.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-column-reverse&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:flex-row to use a responsive class</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-column md:flex-row&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Flex Wrap</h2>
+            <p>Defines whether the flexible items should wrap or not.</p>
+            <h3>Wrap</h3>
+            <p>Flexible items wrap if necessary.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap&quot; style=&quot;max-width: 500px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 border-round&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 border-round&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 border-round&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Wrap-Reverse</h3>
+            <p>Flexible items wrap if necessary but in reverse order...</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap-reverse&quot; style=&quot;max-width: 500px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 border-round&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 border-round&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 border-round&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Nowrap</h3>
+            <p>Flexible items do not wrap and keep their position.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap&quot; style=&quot;max-width: 500px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 border-round&quot; style=&quot;min-width: 150px; min-height: 100px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 border-round&quot; style=&quot;min-width: 150px; min-height: 100px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 border-round&quot; style=&quot;min-width: 150px; min-height: 100px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:flex-wrap to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap-reverse md:flex-wrap&quot; style=&quot;max-width: 500px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 border-round&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 border-round&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 border-round&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Flex</h2>
+            <p>A shorthand property to define flex-grow, flex-shrink and flex-basis at once.</p>
+            <h3>Initial</h3>
+            <p>flex-initial sets flex-grow to 0, flex-shrink to 1 and flex-basis to auto which is the default setting of browsers.</p>
+            <pre><code>
+                &lt;div class=&quot;flex&quot;&gt;
+                    &lt;div class=&quot;flex-initial flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Prime&lt;/div&gt;
+                    &lt;div class=&quot;flex-initial flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Prime and PrimeFlex&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;flex&quot;&gt;
+                    &lt;div class=&quot;flex-initial flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Prime&lt;/div&gt;
+                    &lt;div class=&quot;flex-initial flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Prime and PrimeFlex&lt;/div&gt;
+                    &lt;div class=&quot;flex-initial flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.{&#x27; &#x27;}
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Flex 1</h3>
+            <p>Sets grow and shrink to 1 to auto grow and shrink while keeping flex-basis to 0.</p>
+            <pre><code>
+                &lt;div class=&quot;flex&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Prime&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Prime and PrimeFlex&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;flex&quot;&gt;
+                    &lt;div class=&quot;flex-1 flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Prime&lt;/div&gt;
+                    &lt;div class=&quot;flex-1 flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Prime and PrimeFlex&lt;/div&gt;
+                    &lt;div class=&quot;flex-1 flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Auto</h3>
+            <p>Sets grow and shrink to 1 to auto grow and shrink while keeping flex-basis to auto.</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;flex&quot;&gt;
+                        &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Prime&lt;/div&gt;
+                        &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Prime and PrimeFlex&lt;/div&gt;
+                        &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;flex&quot;&gt;
+                        &lt;div class=&quot;flex-auto flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Prime&lt;/div&gt;
+                        &lt;div class=&quot;flex-auto flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Prime and PrimeFlex&lt;/div&gt;
+                        &lt;div class=&quot;flex-auto flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>None</h3>
+            <p>Same as "0 0 auto" meaning the element does not grow or shrink.</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;flex&quot;&gt;
+                        &lt;div class=&quot;flex-1 flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+                        &lt;div class=&quot;flex-none flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+                        &lt;div class=&quot;flex-1 flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:flex-auto to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;flex&quot;&gt;
+                        &lt;div class=&quot;flex-1 md:flex-none flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;flex-1 on small devices and none on bigger.&lt;/div&gt;
+                        &lt;div class=&quot;flex-1 md:flex-none flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;flex-1 on small devices and none on bigger.&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Flex Grow</h2>
+            <p>Controls how much a flexible item grows.</p>
+            <h3>Grow</h3>
+            <p>Second item grows while others do not.</p>
+            <pre><code>
+                &lt;div class=&quot;flex overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;flex-none flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;PrimeFlex&lt;/div&gt;
+                    &lt;div class=&quot;flex-grow-1 flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;PrimeFlex&lt;/div&gt;
+                    &lt;div class=&quot;flex-none flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;PrimeFlex&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:flex-grow-1 to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;flex overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;flex-grow-1 md:flex-grow-0 flex align-items-center justify-content-center bg-primary font-bold m-2 px-5 py-3 border-round&quot;&gt;Grow on small device&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Flex Shrink</h2>
+            <p>Controls how much a flexible item shrinks.</p>
+            <h3>Shrink</h3>
+            <p>Second item does not shrink while others do.</p>
+            <pre><code>
+                &lt;div class=&quot;flex overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;flex-grow-1 flex-shrink-1 flex align-items-center justify-content-center bg-primary font-bold p-4 m-3 border-round&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex-shrink-0 flex align-items-center justify-content-center bg-primary font-bold p-4 m-3 border-round&quot;&gt;shrink item&lt;/div&gt;
+                    &lt;div class=&quot;flex-grow-1 flex-shrink-1 flex align-items-center justify-content-center bg-primary font-bold p-4 m-3 border-round&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:flex-shrink-1 to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;flex&quot;&gt;
+                    &lt;div class=&quot;flex-grow-1 flex align-items-center justify-content-center bg-primary font-bold p-4 m-3 border-round&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex-shrink-1 md:flex-shrink-0 flex align-items-center justify-content-center bg-primary font-bold p-4 m-3 border-round&quot;&gt;Shrink on Mobile&lt;/div&gt;
+                    &lt;div class=&quot;flex-grow-1 flex align-items-center justify-content-center bg-primary font-bold p-4 m-3 border-round&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Gap</h2>
+            <p>Defines the size of the gap between the rows and columns. It is a shorthand for column-gap and row-gap.</p>
+            <h3>Examples</h3>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap justify-content-center gap-3&quot;&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;3&lt;/div&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;4&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>           
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap column-gap-4 row-gap-6&quot;&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;3&lt;/div&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;4&lt;/div&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;5&lt;/div&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;6&lt;/div&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;7&lt;/div&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;8&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:gap-2 to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap gap-1 md:gap-4 xl:gap-8&quot;&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;border-round w-12rem h-6rem bg-primary font-bold flex align-items-center justify-content-center&quot;&gt;2&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Order</h2>
+            <p>Controls the order of a flexible item relative to its container.</p>
+            <h3>Order</h3>
+            <p>Items can be given specific order regardless of their order at the document.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap&quot;&gt;
+                    &lt;div class=&quot;flex-order-2 flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex-order-1 flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex-order-0 flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:flex-order-1 to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap&quot;&gt;
+                    &lt;div class=&quot;md:flex-order-2 flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;md:flex-order-1 flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;md:flex-order-0 flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Justify Content</h2>
+            <p>Defines the alignment on the main axis.</p>
+            <h3>Start</h3>
+            <p>Items are positioned at the start of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex justify-content-start flex-wrap&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Center</h3>
+            <p>Items are positioned at the center of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex justify-content-center flex-wrap&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>            
+            <h3>End</h3>
+            <p>Items are positioned at the end of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex justify-content-end flex-wrap&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Space Between</h3>
+            <p>Items are positioned with spaces between them.</p>
+            <pre><code>
+                &lt;div class=&quot;flex justify-content-between flex-wrap&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Space Around</h3>
+            <p>Items are positioned with spaces between and around them.</p>
+            <pre><code>
+                &lt;div class=&quot;flex justify-content-around flex-wrap&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Space Evenly</h3>
+            <p>Items are positioned with equals spaces around them.</p>
+            <pre><code>
+                &lt;div class=&quot;flex justify-content-evenly flex-wrap&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:justify-content-center to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;flex md:justify-content-start justify-content-center flex-wrap&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Align Content</h2>
+            <p>Controls the distribution of flex lines between and around items.</p>
+            <h3>Start</h3>
+            <p>Flex lines are distributed at the start of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-content-start flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Center</h3>
+            <p>Flex lines are distributed at the center of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-content-center flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>            
+            <h3>End</h3>
+            <p>Flex lines are distributed at the end of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-content-end flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Space Between</h3>
+            <p>Flex lines are distributed evenly.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-content-between flex-wrap&quot;  style=&quot;min-height: 320px; max-width: 700px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Space Around</h3>
+            <p>Flex lines are distributed evenly with half size spaces on both ends.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-content-around flex-wrap&quot;  style=&quot;min-height: 320px; max-width: 700px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Space Evenly</h3>
+            <p>Flex lines are distributed evenly with equal space around them.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-content-evenly flex-wrap&quot;  style=&quot;min-height: 320px; max-width: 700px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:align-content-start to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;flex  md:align-content-start align-content-center flex-wrap&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Align Items</h2>
+            <p>Defines the alignment on the cross axis.</p>
+            <h3>Stretch</h3>
+            <p>Items are stretched to fit the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-stretch flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Start</h3>
+            <p>Items are located at the start of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-start flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 150px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Center</h3>
+            <p>Items are located at the center of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-center flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 150px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>End</h3>
+            <p>Items are located at the end of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-end flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 150px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Baseline</h3>
+            <p>Items are located at the baseline of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-baseline flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 150px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:align-items-center to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;flex md:align-items-center align-items-stretch flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;2&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Align Self</h2>
+            <p>Defines the alignment for a particular element on the cross axis.</p>
+            <h3>Auto</h3>
+            <p>Derives the value from flex container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-stretch flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-self-auto  justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Start</h3>
+            <p>Item is located at the start of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-stretch flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-self-start align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Center</h3>
+            <p>Item is located at the center of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-stretch flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;flex align-self-center align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>End</h3>
+            <p>Item is located at the end of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-stretch flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;align-self-end flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Stretch</h3>
+            <p>Item is stretched to fit the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-stretch flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;align-self-stretch flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Baseline</h3>
+            <p>Item is located at the baseline of the container.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-stretch flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;align-self-baseline flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:align-self-center to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-stretch flex-wrap&quot; style=&quot;min-height: 200px&quot;&gt;
+                    &lt;div class=&quot;md:align-self-auto align-self-center flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;md:align-self-auto align-self-center flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;md:align-self-auto align-self-center flex align-items-center justify-content-center bg-primary font-bold border-round m-2&quot; style=&quot;min-width: 200px; min-height: 50px&quot;&gt;3&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+        </section>
+        <section class="main-section" id="Grid">
+            <header>Grid</header>
+            <h2>Form Layout</h2>
+            <p>An extension to Grid System with fine tuning to create forms.</p>
+            <h3>Vertical</h3>
+            <pre><code>
+                &lt;div class=&quot;field&quot;&gt;
+                    &lt;label for=&quot;firstname1&quot;&gt;Firstname&lt;/label&gt;
+                    &lt;input id=&quot;firstname1&quot; type=&quot;text&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;field&quot;&gt;
+                    &lt;label for=&quot;lastname1&quot;&gt;Lastname&lt;/label&gt;
+                    &lt;input id=&quot;lastname1&quot; type=&quot;text&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full&quot;&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Vertical & Grid</h3>
+            <pre><code>
+                &lt;div class=&quot;formgrid grid&quot;&gt;
+                    &lt;div class=&quot;field col&quot;&gt;
+                        &lt;label for=&quot;firstname2&quot;&gt;Firstname&lt;/label&gt;
+                        &lt;input id=&quot;firstname2&quot; type=&quot;text&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;field col&quot;&gt;
+                        &lt;label for=&quot;lastname2&quot;&gt;Lastname&lt;/label&gt;
+                        &lt;input id=&quot;lastname2&quot; type=&quot;text&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Horizontal & Fixed Width</h3>
+            <pre><code>
+                &lt;div class=&quot;field grid&quot;&gt;
+                    &lt;label for=&quot;firstname3&quot; class=&quot;col-fixed&quot; style=&quot;width:100px&quot;&gt;Firstname&lt;/label&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;input id=&quot;firstname3&quot; type=&quot;text&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;field grid&quot;&gt;
+                    &lt;label for=&quot;lastname3&quot; class=&quot;col-fixed&quot; style=&quot;width:100px&quot;&gt;Lastname&lt;/label&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;input id=&quot;lastname3&quot; type=&quot;text&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Horizontal</h3>
+            <pre><code>
+                &lt;div class=&quot;field grid&quot;&gt;
+                    &lt;label for=&quot;firstname4&quot; class=&quot;col-12 mb-2 md:col-2 md:mb-0&quot;&gt;Firstname&lt;/label&gt;
+                    &lt;div class=&quot;col-12 md:col-10&quot;&gt;
+                        &lt;input id=&quot;firstname4&quot; type=&quot;text&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;field grid&quot;&gt;
+                    &lt;label for=&quot;lastname4&quot; class=&quot;col-12 mb-2 md:col-2 md:mb-0&quot;&gt;Lastname&lt;/label&gt;
+                    &lt;div class=&quot;col-12 md:col-10&quot;&gt;
+                        &lt;input id=&quot;lastname4&quot; type=&quot;text&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Inline</h3>
+            <pre><code>
+                &lt;div class=&quot;formgroup-inline&quot;&gt;
+                    &lt;div class=&quot;field&quot;&gt;
+                        &lt;label for=&quot;firstname5&quot; class=&quot;p-sr-only&quot;&gt;Firstname&lt;/label&gt;
+                        &lt;input id=&quot;firstname5&quot; type=&quot;text&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary&quot; placeholder=&quot;Firstname&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;field&quot;&gt;
+                        &lt;label for=&quot;lastname5&quot; class=&quot;p-sr-only&quot;&gt;Lastname&lt;/label&gt;
+                        &lt;input id=&quot;lastname5&quot; type=&quot;text&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary&quot; placeholder=&quot;Lastname&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;bg-primary border-primary-500 px-3 py-2 text-base border-1 border-solid border-round cursor-pointer transition-all transition-duration-200 hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700&quot;&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Vertical & Horizontal Checkbox</h3>
+            <pre><code>
+                &lt;p&gt;Vertical&lt;/p&gt;
+                &lt;div class=&quot;field-checkbox&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot; id=&quot;city1&quot;&gt;&lt;/input&gt;
+                    &lt;label for=&quot;city1&quot;&gt;Chicago&lt;/label&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;field-checkbox&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot; id=&quot;city2&quot;&gt;&lt;/input&gt;
+                    &lt;label for=&quot;city2&quot;&gt;Los Angeles&lt;/label&gt;
+                &lt;/div&gt;
+
+                &lt;p&gt;Horizontal&lt;/p&gt;
+                &lt;div class=&quot;formgroup-inline&quot;&gt;
+                    &lt;div class=&quot;field-checkbox&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; id=&quot;city3&quot;&gt;&lt;/input&gt;
+                        &lt;label for=&quot;city3&quot;&gt;Chicago&lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;field-checkbox&quot;&gt;
+                        &lt;input type=&quot;checkbox&quot; id=&quot;city4&quot;&gt;&lt;/input&gt;
+                        &lt;label for=&quot;city4&quot;&gt;Los Angeles&lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Vertical & Horizontal Radio Button</h3>
+            <pre><code>
+                &lt;p&gt;Vertical&lt;/p&gt;
+                &lt;div class=&quot;field-radiobutton&quot;&gt;
+                    &lt;input type=&quot;radio&quot; id=&quot;city1&quot;&gt;&lt;/input&gt;
+                    &lt;label for=&quot;city1&quot;&gt;Chicago&lt;/label&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;field-radiobutton&quot;&gt;
+                    &lt;input type=&quot;radio&quot; id=&quot;city2&quot;&gt;&lt;/input&gt;
+                    &lt;label for=&quot;city2&quot;&gt;Los Angeles&lt;/label&gt;
+                &lt;/div&gt;
+
+                &lt;p&gt;Horizontal&lt;/p&gt;
+                &lt;div class=&quot;formgroup-inline&quot;&gt;
+                    &lt;div class=&quot;field-radiobutton&quot;&gt;
+                        &lt;input type=&quot;radio&quot; id=&quot;city3&quot;&gt;&lt;/input&gt;
+                        &lt;label for=&quot;city3&quot;&gt;Chicago&lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;field-radiobutton&quot;&gt;
+                        &lt;input type=&quot;radio&quot; id=&quot;city4&quot;&gt;&lt;/input&gt;
+                        &lt;label for=&quot;city4&quot;&gt;Los Angeles&lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Help Text</h3>
+            <pre><code>
+                &lt;div class=&quot;field&quot;&gt;
+                    &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+                    &lt;input id=&quot;username&quot; type=&quot;username&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full&quot; aria-describedby=&quot;username-help&quot;&gt;
+                    &lt;small id=&quot;username-help&quot;&gt;Enter your username to reset your password.&lt;/small&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Advanced</h3>
+            <pre><code>
+                &lt;div class=&quot;formgrid grid&quot;&gt;
+                    &lt;div class=&quot;field col-12 md:col-6&quot;&gt;
+                        &lt;label for=&quot;firstname6&quot;&gt;Firstname&lt;/label&gt;
+                        &lt;input id=&quot;firstname6&quot; type=&quot;text&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;field col-12 md:col-6&quot;&gt;
+                        &lt;label for=&quot;lastname6&quot;&gt;Lastname&lt;/label&gt;
+                        &lt;input id=&quot;lastname6&quot; type=&quot;text&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;field col-12&quot;&gt;
+                        &lt;label for=&quot;address&quot;&gt;Address&lt;/label&gt;
+                        &lt;textarea id=&quot;address&quot; type=&quot;text&quot; rows=&quot;4&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full&quot;&gt;&lt;/textarea&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;field col-12 md:col-6&quot;&gt;
+                        &lt;label for=&quot;city&quot;&gt;City&lt;/label&gt;
+                        &lt;input id=&quot;city&quot; type=&quot;text&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;field col-12 md:col-3&quot;&gt;
+                        &lt;label for=&quot;state&quot;&gt;State&lt;/label&gt;
+                        &lt;select id=&quot;state&quot; class=&quot;w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary&quot; style=&quot;appearance: auto&quot;&gt;
+                            &lt;option&gt;Arizona&lt;/option&gt;
+                            &lt;option&gt;California&lt;/option&gt;
+                            &lt;option&gt;Florida&lt;/option&gt;
+                            &lt;option&gt;Ohio&lt;/option&gt;
+                            &lt;option&gt;Washington&lt;/option&gt;
+                        &lt;/select&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;field col-12 md:col-3&quot;&gt;
+                        &lt;label for=&quot;zip&quot;&gt;Zip&lt;/label&gt;
+                        &lt;input id=&quot;zip&quot; type=&quot;text&quot; class=&quot;text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Grid System</h2>
+            <p>Grid is a lightweight flex based responsive layout utility optimized for mobile phones, tablets and desktops.</p>
+            <h3>Getting Started</h3>
+            <p>FlexGrid is a CSS utility based on flexbox. For more information about Flex, visit A Complete Guide to Flexbox. A basic grid is defined by giving a container grid class and children the col class. Children of the grid will have the same width and scale according to the width of the parent.</p>
+            <pre><code>
+                &lt;div class=&quot;grid&quot;&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;2&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;3&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>12 Column Grid</h3>
+            <p>FlexGrid includes a 12 column based layout utility where width of a column is defined with the col-{number} style class. Columns with prefined widths can be used with columns with auto width (col) as well.
+                In the first example below, first column covers the 4 units out of 12 and the rest of the columns share the remaining space whereas in the second example, all three columns have explicit units.</p>
+            <pre><code>
+                &lt;div class=&quot;grid&quot;&gt;
+                    &lt;div class=&quot;col-4&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;4&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;grid&quot;&gt;
+                    &lt;div class=&quot;col-2&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;2&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-6&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;6&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-4&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold &quot;&gt;4&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Multiline</h3>
+            <p>When the number of columns exceed 12, columns wrap to a new line.</p>
+            <pre><code>
+                &lt;div class=&quot;grid&quot;&gt;
+                    &lt;div class=&quot;col-6&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;6&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-6&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;6&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-6&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;6&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-6&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;6&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Fixed Width Column</h3>
+            <p>A column can have a fixed width while siblings having auto width. Apply col-fixed class to fix a column width</p>
+            <pre><code>
+                &lt;div class=&quot;grid&quot;&gt;
+                    &lt;div class=&quot;col-fixed&quot; style=&quot;width:100px&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;100px&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;auto&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Offset</h3>
+            <p>Offset classes allow defining a left margin on a column to avoid adding empty columns for spacing.</p>
+            <pre><code>
+                &lt;div class=&quot;grid&quot;&gt;
+                    &lt;div class=&quot;col-6 col-offset-3&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;6&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;grid&quot;&gt;
+                    &lt;div class=&quot;col-4&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;4&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-4 col-offset-4&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;4&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Nested</h3>
+            <p>Columns can be nested to create more complex layouts.</p>
+            <pre><code>
+                &lt;div class=&quot;grid nested-grid&quot;&gt;
+                    &lt;div class=&quot;col-8&quot;&gt;
+                        &lt;div class=&quot;grid&quot;&gt;
+                            &lt;div class=&quot;col-6&quot;&gt;
+                                &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;6&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;col-6&quot;&gt;
+                                &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;6&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;col-12&quot;&gt;
+                                &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;12&lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-4&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm h-full bg-primary font-bold&quot;&gt;4&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Gutter</h3>
+            <p>A .5rem padding is applied to each column along with negative margins on the container element, in case you'd like to remove these gutters, apply.grid-nogutter class to the container. Gutters can also be removed on an individual columns with the same class name.</p>
+            <pre><code>
+                &lt;div class=&quot;grid grid-nogutter&quot;&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;1&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:col-6 to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;grid&quot;&gt;
+                    &lt;div class=&quot;col-12 md:col-6 lg:col-3&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;col-12 md:col-6 lg:col-3&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-12 md:col-6 lg:col-3&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;col-12 md:col-6 lg:col-3&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-12 md:col-6 lg:col-3&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;col-12 md:col-6 lg:col-3&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-12 md:col-6 lg:col-3&quot;&gt;
+                        &lt;div class=&quot;text-center p-3 border-round-sm bg-primary font-bold&quot;&gt;col-12 md:col-6 lg:col-3&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+        </section>
+        <section class="main-section" id="Background">
+            <header>Background</header>
+            <h2>Background Color</h2>
+            <p>Choose from a variety of colors for the background of an element.</p>
+            <h3>Examples</h3>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap md:justify-content-between justify-content-center&quot;&gt;
+                    &lt;div class=&quot;surface-500 font-bold border-round m-2 flex align-items-center justify-content-center&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;
+                        surface-500
+                    &lt;/div&gt;
+                    &lt;div class=&quot;bg-primary font-bold border-round m-2 flex align-items-center justify-content-center&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;
+                        bg-primary
+                    &lt;/div&gt;
+                    &lt;div class=&quot;bg-primary font-bold border-round m-2 flex align-items-center justify-content-center&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;
+                        bg-primary
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Pseudo States</h3>
+            <p>Focus, Hover and Active states are available with the focus:, hover:, active: prefixes respectively.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap md:justify-content-between justify-content-center&quot;&gt;
+                    &lt;div class=&quot;surface-500 hover:surface-700 border-round font-bold m-2 flex align-items-center justify-content-center&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;
+                        hover:surface-700
+                    &lt;/div&gt;
+                    &lt;div class=&quot;bg-primary hover:bg-cyan-700 border-round font-bold m-2 flex align-items-center justify-content-center&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;
+                        hover:bg-cyan-700
+                    &lt;/div&gt;
+                    &lt;div class=&quot;bg-primary hover:bg-orange-700 border-round font-bold m-2 flex align-items-center justify-content-center&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;
+                        hover:bg-orange-700
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Named Theme Color</h3>
+            <p>Focus, Hover and Active states are available with the focus:, hover:, active: prefixes respectively.</p>
+            <pre><code>
+                &lt;div class=&quot;flex flex-wrap md:justify-content-between justify-content-center&quot;&gt;
+                    &lt;div class=&quot;surface-ground hover:surface-500 border-round surface-border border-3 text-surface-100 font-bold m-2 flex align-items-center justify-content-center&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;
+                        surface-ground &lt;br/&gt; surface-border
+                    &lt;/div&gt;
+                    &lt;div class=&quot;surface-section hover:surface-500 border-round text-surface-100 font-bold m-2 flex align-items-center justify-content-center&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;
+                        surface-section
+                    &lt;/div&gt;
+                    &lt;div class=&quot;surface-card hover:surface-500 border-round surface-border border-3 text-surface-100 font-bold m-2 flex align-items-center justify-content-center&quot; style=&quot;min-width: 200px; min-height: 100px&quot;&gt;
+                        surface-card
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Background Repeat</h2>
+            <p>Controls how a background image is repeated.</p>
+            <h3>Repeat</h3>
+            <p>Background image is repeated both vertically and horizontally.</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;bg-repeat bg-primary-100 border-primary-500 border-2 border-round w-full&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-blue.svg&#x27;); background-size: 10rem; height: 30rem&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>No Repeat</h3>
+            <p>Background image is not repeated.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-center justify-content-center overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;bg-no-repeat bg-primary-100 bg-center w-19rem h-19rem bg-primary border-2 border-primary-500 border-round&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-yellow.svg&#x27;)&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Repeat Horizontally</h3>
+            <p>Background image is repeated horizontally only.</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;bg-repeat-x bg-primary-100 bg-center border-primary-500 border-2 border-round h-10rem w-full&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-green.svg&#x27;);background-size: 10rem&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Repeat Vertically</h3>
+            <p>Background image is repeated vertically only.</p>
+            <pre><code>
+                &lt;div class=&quot;flex justify-content-center overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;bg-repeat-y bg-primary-100 bg-center h-20rem w-10rem border-primary-500 border-2 border-round&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-purple.svg&#x27;);background-size: 10rem&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Repeat Round</h3>
+            <p>Background image is repeated or stretched to fill space</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;bg-repeat-round bg-indigo-100 border-primary-500 border-round border-2 h-20rem w-full&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-indigo.svg&#x27;);background-size: 10rem&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Repeat Space</h3>
+            <p>Background image is repeated without clipping.</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;bg-repeat-space bg-primary-100 bg-center border-primary-500 border-2 border-round h-12rem w-full&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-orange.svg&#x27;);background-size: 10rem&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive<h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:bg-repeat to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;flex align-items-center overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;bg-repeat-round md:bg-repeat-space bg-cyan-100 border-primary-500 border-2 border-round h-21rem w-full&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-cyan.svg&#x27;);background-size: 10rem&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Background Size</h2>
+            <p>Defines the size of a background image.</p>
+            <h3>Auto</h3>
+            <p>Image is displayed in its original size.</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;bg-auto bg-no-repeat bg-center bg-primary border-round h-20rem w-full&quot; style=&quot;background-image: url(&#x27;images/product-placeholder-blue.svg&#x27;);&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Cover</h3>
+            <p>Image is resized to cover the container fully by stretching of clipping if necessary.</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;bg-cover bg-center border-primary-500 border-2 border-round h-20rem w-full&quot; style=&quot;background-image: url(&#x27;images/product-placeholder-yellow.svg&#x27;);&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Contain</h3>
+            <p>Image is resized to fill the container</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;bg-contain bg-center bg-no-repeat bg-primary border-round h-20rem w-full&quot; style=&quot;background-image: url(&#x27;images/product-placeholder-green.svg&#x27;);&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive</h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:bg-contain to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;bg-cover md:bg-contain bg-center bg-no-repeat bg-primary border-round h-20rem w-full&quot; style=&quot;background-image: url(&#x27;images/product-placeholder-purple.svg&#x27;);&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h2>Background Position</h2>
+            <p>Configures the starting position of a background image.</p>
+            <h3>Examples</h3>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;flex flex-wrap align-items-center justify-content-center&quot;&gt;
+                        &lt;div class=&quot;bg-left-top bg-no-repeat w-10rem h-10rem bg-primary border-round m-3&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-blue.svg&#x27;); background-size: 5rem;&quot;&gt;&lt;/div&gt;
+                        &lt;div class=&quot;bg-top bg-no-repeat w-10rem h-10rem bg-primary border-round m-3&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-blue.svg&#x27;); background-size: 5rem;&quot;&gt;&lt;/div&gt;
+                        &lt;div class=&quot;bg-right-top bg-no-repeat w-10rem h-10rem bg-primary border-round m-3&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-blue.svg&#x27;); background-size: 5rem;&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;flex flex-wrap align-items-center justify-content-center&quot;&gt;
+                        &lt;div class=&quot;bg-left bg-no-repeat w-10rem h-10rem bg-primary border-round m-3&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-blue.svg&#x27;); background-size: 5rem;&quot;&gt;&lt;/div&gt;
+                        &lt;div class=&quot;bg-center bg-no-repeat w-10rem h-10rem bg-primary border-round m-3&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-blue.svg&#x27;); background-size: 5rem;&quot;&gt;&lt;/div&gt;
+                        &lt;div class=&quot;bg-right bg-no-repeat w-10rem h-10rem bg-primary border-round m-3&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-blue.svg&#x27;); background-size: 5rem;&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;flex flex-wrap align-items-center justify-content-center&quot;&gt;
+                        &lt;div class=&quot;bg-bottom bg-no-repeat w-10rem h-10rem bg-primary border-round m-3&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-blue.svg&#x27;); background-size: 5rem;&quot;&gt;&lt;/div&gt;
+                        &lt;div class=&quot;bg-left-bottom bg-no-repeat w-10rem h-10rem bg-primary border-round m-3&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-blue.svg&#x27;); background-size: 5rem;&quot;&gt;&lt;/div&gt;
+                        &lt;div class=&quot;bg-right-bottom bg-no-repeat w-10rem h-10rem bg-primary border-round m-3&quot; style=&quot;background-image: url(&#x27;/images/product-placeholder-blue.svg&#x27;); background-size: 5rem;&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <h3>Responsive<h3>
+            <p>Responsive alternatives are available for customizations based on screen size. Add the responsive breakpoint keyword followed by a semi-colon as a prefix such as md:bg-bottom to use a responsive class.</p>
+            <pre><code>
+                &lt;div class=&quot;overflow-hidden flex align-items-center justify-content-center&quot;&gt;
+                    &lt;div class=&quot;bg-top md:bg-bottom bg-no-repeat w-10rem h-10rem bg-primary border-round m-3&quot; style=&quot;background-image: url(&#x27;images/product-placeholder-yellow.svg&#x27;);background-size: 5rem&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+        </section>
+    </main>
+</body>
+</html>
