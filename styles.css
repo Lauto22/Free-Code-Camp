@@ -1,0 +1,46 @@
+/* Estilo básico para el cuerpo de la página */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:black;
+    color: green;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: black;
+    color: green;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Estilos para la lista de proyectos */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: black;
+    margin: 15px;
+    padding: 15px;
+    border: 1px solid green;
+    color: green;
+}
+
+ul li a {
+    text-decoration: none;
+    color: green;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
