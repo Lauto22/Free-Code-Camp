@@ -1,0 +1,103 @@
+<!-- 
+1-Tu página de inicio de producto debe tener un elemento header con un correspondiente id="header"
+2-Puedes ver una imagen dentro del elemento header con un correspondiente id="header-img" (Un logotipo sería una buena imagen aquí)
+3-Dentro el elemento #header, puedes ver un elemento nav con su correspondiente id="nav-bar"
+4-Puedes ver al menos tres elementos cliqueables dentro del elemento nav, cafda una con la clase nav-link
+5-Cuando hagas click en un botón .nav-link en el elemento nav, serás redireccionado a la sección correspondiente de la página de inicio
+6-Puedes ver un vídeo del producto incrustado con id="video"
+7-Tu página de inicio tiene un elemento form con un correspondiente id="form"
+8-Dentro del formulario, hay un campo input con id="email", donde puedes ingresar tu dirección de email
+9-El campo de entrada #email debe tener un marcador de texto para que los usuarios sepan para que sirve este campo
+10-El campo de entrada #email usa validación HTML5 para confirmar que el texto ingresado es una dirección de email
+11-Dentro del formulario, hay un input de tipo submit (enviar) con su correspondiente id="submit"
+12-Cuendo haces click en el elemento #submit, el email es enviado a una página web (Utiliza esta URL de pruebas: https://www.freecodecamp.com/email-submit)
+13-La barra de navegación siempre debe estar en la parte superior de la vista
+14-La página de inicio de tu producto debe tener al menos una consulta de medios
+15-Tu página de inicio del producto debe utillizar el flexbox CSS al menos una vez 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peluches Importados Pokemón</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="header">
+
+        <a href="#" class="my-logo">
+            <img src="logo.png" alt="peluche logo" id="header-img">
+            <p>Peluches Pokemón</p>
+        </a>
+
+            
+        <nav id="nav-bar">
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#nuestros-productos" class="nav-link">Nuestros Productos</a>
+            <a href="#nuestros-peluches" class="nav-link">Centro Pokemón</a>
+            <a href="#donde-pedir" class="nav-link">Donde Pedir</a>
+            
+        </nav>
+    </header>
+    <main>
+        <section id="inicio">
+            
+            <div class="feature peluche-background padding25">
+                <div class="espaciador"></div>
+                <h1 class="text-center titulo-inicio">Los peluches de Pokemón mas hermosos de todos</h1>
+                <h3 class="text-center yellow-font">Lindos, Suaves y Esponjosos</h3>
+                <br>
+                <p class="text-center achicar"><em>Los mejores peluches y de mejor calidad los vas a encontrar en nuestra tienda</em></p>
+            </div>
+
+            <div class="feature peluches-background padding25">
+                <h3 class="text-center yellow-font">Gran variedad</h3>
+                <br>
+                <p class="text-center achicar"><em>"Tenemos la mayor variedad de Pokemónes para que puedas encontrar a tu favorito !</em></p>
+            </div>
+
+            <div class="feature perro-background padding25">
+                <h3 class="text-center yellow-font">Hay Pokemónes para todos</h3>
+                <br>
+                <p class="text-center achicar"><em>No importa quien o de donde seas, tenemos el peluche que vos estas buscando!</em></p>
+                <div class="espaciador"></div>
+            </div>
+            
+            
+            
+        </section>
+        <section id="nuestros-productos">
+            <h2 class="text-center titulo-inicio">Nuestros Productos</h2>
+            <div class="espaciador"></div>
+            <div>
+                <img src="https://images2.imgbox.com/4c/dc/DtSnM0yP_o.png" alt="sent">
+                <img src="https://images2.imgbox.com/1a/e0/yMFWwqr5_o.png" alt="drago">
+                <img src="https://images2.imgbox.com/80/48/Ws86BLbb_o.png" alt="eevee">
+            </div>
+        </section>
+        <section id="nuestros-peluches">
+
+            <h2 class="text-center titulo-inicio">Presentación de Centro Pokémon</h2>
+            <div class="espaciador"></div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/yg1LLmOM7Ws?si=Q04TdIkhIDRYYPBl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+        <section id="donde-pedir">
+            <h2 class="text-center titulo-inicio">¿De donde vienen nuestros peluches?</h2>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.8907371579526!2d139.7193245!3d35.7289056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d6f044d6725%3A0x5c5c669ed9f5c455!2sPok%C3%A9mon%20Center%20Mega%20Tokyo!5e0!3m2!1ses-419!2sar!4v1712364339823!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="video"></iframe>
+
+            
+            <h2 class="text-center dejar-mail">Dejanos tu e-mail asi te compartimos toda la información de nuestro stock</h2>
+            <form action="https://www.freecodecamp.com/email-submit" method="GET" id="form">
+                
+                <input type="email" name="email" id="email" placeholder="Ingresa tu e-mail aqui">
+                <input type="submit" value="Enviar" id="submit">
+            </form>
+
+        </section>
+    </main>
+    
+</body>
+</html>
