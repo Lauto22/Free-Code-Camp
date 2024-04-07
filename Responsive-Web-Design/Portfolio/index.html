@@ -1,0 +1,72 @@
+<!-- 
+1-Tu portafolio debe tener una sección de bienvenida con un id de welcome-section
+2-La sección de bienvenida debe tener un elemento h1 que contenga texto
+3-Tu portafolio debe tener una sección de proyectos con un id de projects
+4-La sección de proyectos debe tener al menos un elemento con una class de project-tile para tener un proyecto
+5-La sección de proyectos debe tener al menos un enlace a un proyecto
+6-Tu portafolio debe tener una barra de navegación con un id de navbar
+7-La barra de navegación debe tener al menos un enlace donde puedas hacer clic para navegar a diferentes secciones de la página
+8-Tu portafolio debe tener un enlace con un id de profile-link, el cual abra tu GitHub o perfil de freeCodeCamp en una pestaña nueva
+9-Tu portafolio debe tener al menos una consulta de medios
+10-La altura de la sección de bienvenida debe ser igual a la altura de viewport
+11-La barra de navegación siempre debe estar en la parte superior del viewport 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/49cee94770.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Portfolio</title>
+</head>
+<body>
+    <nav id="navbar">
+        <a href="#welcome-section">Sobre Mí</a>
+        <a href="#projects">Mis Proyectos</a>
+        <a href="#contact">Contacto</a>
+    </nav>
+    <section id="welcome-section">
+        <div>
+            <h1>Lautaro Acosta</h1>
+            <img src="https://images2.imgbox.com/ed/0c/aGzuWQQB_o.jpg" alt="perfil">
+            <p>Fron-end Developer</p>
+        </div>
+    </section>
+    <section id="projects">
+        <h2>Estos son algunos de mis proyectos</h2>
+        <div class="project-container">
+            <div class="project-tile">
+                <a href="https://codepen.io/Lauto22/pen/oNOqbXO" target="_blank">
+                <img src="https://images2.imgbox.com/5a/a3/vuk65lz0_o.png" alt="survey form">
+                <p>Encuesta de pokemón inicial</p>
+                </a>
+            </div>
+            <div class="project-tile">
+                <a href="https://codepen.io/Lauto22/pen/vYMRLOB" target="_blank">
+                <img src="https://images2.imgbox.com/61/30/kCF21cI5_o.png" alt="tribute page" >
+                <p>Pagina tributo a Akira Toriyama</p></a>
+            </div>
+            <div class="project-tile">
+                <a href="https://codepen.io/Lauto22/pen/xxeWZbQ" target="_blank">
+                <img src="https://images2.imgbox.com/25/d5/1vfgbliQ_o.png" alt="technical documentation">
+                <p>Documentacion de PrimeFlex</p></a>
+            </div>
+            <div class="project-tile">
+                <a href="https://codepen.io/Lauto22/pen/WNWzrvp" target="_blank">
+                <img src="https://images2.imgbox.com/18/d5/jxJ5nnT2_o.png" alt="product landing page">
+                <p>Pagina de Peluches Pokemón</p></a>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Si deseas saber mas sobre mi</h2>
+        <p>Estas son mis redes sociales</p>
+        <div class="espaciador"></div>
+        <a href="https://www.linkedin.com/in/lautaronacosta/" target="_blank" >LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/Lauto22" target="_blank" id="profile-link">GitHub <i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/lauti_acosta_22/" target="_blank" >Instagram <i class="fa-brands fa-instagram"></i></a>
+    </section>
+</body>
+</html>
